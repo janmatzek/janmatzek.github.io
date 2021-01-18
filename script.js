@@ -1,5 +1,5 @@
 let alps = {
-    photo: './images/alps.jpg',
+    photo: 'images/alps.jpg',
     title: 'Austrian Alps',
     description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante."
 }
