@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { ChakraProvider, transition } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
-import { Button } from "react-scroll";
 
 const colors = {
   darkGray: "#272727",
