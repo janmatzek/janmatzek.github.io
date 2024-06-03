@@ -15,9 +15,45 @@ import {
   TabList,
   TabPanels,
   TabPanel,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
+import { Link as ScrollLink, Element } from "react-scroll";
+import { keyframes, css } from "@emotion/react";
 
+// TODO: responsive design (hurts just to write that)
 function App() {
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
+
+  const [buttonLoading, setButtonLoading] = useState(false);
+
+  const handlePingClick = () => {
+    // TODO: check if input boxes are populated
+    setButtonDisabled(true);
+    setButtonLoading(true);
+    // TODO: Call ping-my-telegram. Check response -> if OK, then set buttonLoading to false, button stays disabled, text "Message sent" if not OK, set buttonLoading to false, raise error, enable button, text "Try again"
+  };
+
+  const useBlurInAnimation = (duration = "1.5s") => {
+    const blurIn = keyframes`
+      0% {
+        filter: blur(10px);
+        opacity: 0;
+      }
+      100% {
+        filter: blur(0);
+        opacity: 1;
+      }
+    `;
+
+    const animation = css`
+      animation: ${blurIn} ${duration} ease-in-out forwards;
+    `;
+
+    return animation;
+  };
+
   return (
     <>
       <Box className="app-wrapper" width="100vw">
@@ -28,7 +64,9 @@ function App() {
             width="50%"
             margin="8vw"
           >
-            <Heading color="white">Hello world. </Heading>
+            <Heading color="white" css={useBlurInAnimation("1s")}>
+              Hello world.{" "}
+            </Heading>
           </Flex>
           <Flex
             direction="column"
@@ -36,7 +74,7 @@ function App() {
             width="50%"
             margin="8vw"
           >
-            <Text textAlign={"right"}>
+            <Text textAlign={"right"} css={useBlurInAnimation("1.5s")}>
               My name is Jan. I write code,<br></br>play music and make charts.
             </Text>
           </Flex>
@@ -73,10 +111,18 @@ function App() {
               have made
             </Text>
             <Flex direction="row" justifyContent={"end"}>
-              <Button width="125px">Projects</Button>
-              <Button width="125px" marginLeft="25px">
-                Go to CV
-              </Button>
+              <ScrollLink to="projects-section" smooth={true} duration={500}>
+                <Button width={["100px", "125px"]}>Projects</Button>
+              </ScrollLink>
+              <Link
+                href="https://www.canva.com/design/DAFVeu9ROKw/qeYh1U_yUWhzNmkpUn-3Yg/view?utm_content=DAFVeu9ROKw&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+                target="_blank"
+                rel="noopener, noreferrer"
+              >
+                <Button width={["100px", "125px"]} marginLeft="25px">
+                  Go to CV
+                </Button>
+              </Link>
             </Flex>
           </Flex>
         </Flex>
@@ -95,15 +141,104 @@ function App() {
           bgPosition={"center"}
           backgroundAttachment="fixed"
         >
+          <Element name="projects-section"></Element>
           <Box paddingTop="20vh" marginLeft="8vw" marginRight="8vw">
             <Heading marginBottom={"4vh"}>Projects</Heading>
             <Tabs isFitted variant="unstyled">
+              {" "}
               <TabList mb="1em" borderBottom="2px solid" borderColor="gray.200">
                 <Tab>Spotify Dashboard</Tab>
               </TabList>
               <TabPanels>
                 <TabPanel>
-                  <p>one!</p>
+                  <Text
+                    className="projectPerex"
+                    textAlign={"center"}
+                    marginBottom={"4vh"}
+                  >
+                    A web application showing my{" "}
+                    <Link
+                      href="https://spotify-front-end-one.vercel.app"
+                      target="blank"
+                      rel="noopener noreferrer"
+                    >
+                      Spotify listening stats
+                    </Link>
+                    .<br></br>Kind of like Spotify wrapped, but I don’t have to
+                    wait until December!
+                  </Text>
+                  <Flex direction="row" justifyContent={"space-evenly"}>
+                    <Box>
+                      <Link
+                        href="https://spotify-front-end-one.vercel.app"
+                        target="blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Box
+                          filter="none"
+                          transition="transform 0.3s ease-in-out"
+                          _hover={{
+                            transform: "scale(1.05)",
+                            filter: "drop-shadow(0 0 5px white)",
+                          }}
+                        >
+                          <Image
+                            src="./src/assets/spotifyDashboard.png"
+                            maxWidth="30vw"
+                          ></Image>
+                        </Box>
+                      </Link>
+                    </Box>
+                    <Flex
+                      maxWidth={"35vw"}
+                      direction="column"
+                      justifyContent={"center"}
+                    >
+                      <UnorderedList styleType="'- '">
+                        <ListItem>
+                          ETL function deployed on AWS Lambda fetching data from
+                          Spotify API every hour
+                        </ListItem>
+                        <ListItem>
+                          Data is stored in BigQuery with SQL analytical layer
+                          on top of it
+                        </ListItem>
+                        <ListItem>
+                          Frontend created in React using Chakra UI and
+                          Chart.js, backend runs on Python FastAPI
+                        </ListItem>
+                        <ListItem>
+                          Alerts are sent directly to my phone via Telegram
+                        </ListItem>
+                        <ListItem>
+                          Repositories:{" "}
+                          <Link
+                            href="https://github.com/janmatzek/spotify-backend"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            pipeline
+                          </Link>{" "}
+                          |{" "}
+                          <Link
+                            href="https://github.com/janmatzek/sandboxProjects"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            backend
+                          </Link>{" "}
+                          |{" "}
+                          <Link
+                            href="https://github.com/janmatzek/spotify-front-end"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            frontend
+                          </Link>
+                        </ListItem>
+                      </UnorderedList>
+                    </Flex>
+                  </Flex>
                 </TabPanel>
               </TabPanels>
             </Tabs>
@@ -131,27 +266,25 @@ function App() {
                 <Input
                   type="email"
                   placeholder="Your email"
-                  width="350px"
+                  _placeholder={{ color: "darkGray" }}
+                  maxWidth="80%"
                   marginBottom={"2vh"}
                   alignSelf="flex-end"
-                  sx={{
-                    "::placeholder": {
-                      color: "gray.400", // Change this color as needed
-                    },
-                  }}
                 />
                 <Textarea
                   placeholder="Your message"
-                  width="350px"
+                  _placeholder={{ color: "darkGray" }}
+                  maxWidth="80%"
                   marginBottom={"2vh"}
                   alignSelf="flex-end"
-                  sx={{
-                    "::placeholder": {
-                      color: "gray.400", // Change this color as needed
-                    },
-                  }}
                 />
-                <Button width="125px" alignSelf="flex-end">
+                <Button
+                  width="125px"
+                  alignSelf="flex-end"
+                  onClick={() => handlePingClick()}
+                  isDisabled={buttonDisabled}
+                  isLoading={buttonLoading}
+                >
                   Ping me!
                 </Button>
               </Flex>
