@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import {
   Box,
@@ -21,20 +21,75 @@ import {
 import { Link as ScrollLink, Element } from "react-scroll";
 import { keyframes, css } from "@emotion/react";
 
-// TODO: responsive design (hurts just to write that)
+// TODO: update CV
+// TODO: rename spotify pipeline repo
+// TODO: make all spotify repositories public
+// TODO: get a better profile pic for the web (optional)
+// TODO: set this as your website on LinkedIn
+// TODO: start working on your next project :)
+
 function App() {
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [messageSent, setMessageSent] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  const frogEndpoint = "http://localhost:3000/dev/sendMessage";
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
+  const [emailValue, setEmailValue] = useState("");
+  const handleEmailChange = (event) => setEmailValue(event.target.value);
+
+  const [messageValue, setMessageValue] = useState("");
+  const handleMessageChange = (event) => setMessageValue(event.target.value);
+
+  const [pingMeCaption, setPingMeCaption] = useState("Ping me!");
+
+  const [messageSent, setMessageSent] = useState(false);
+
+  useEffect(() => {
+    if (messageSent) {
+      setButtonDisabled(true);
+    }
+  }, [messageSent]);
+
+  useEffect(() => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (messageSent == true) {
+      setButtonDisabled(true);
+    } else if (emailRegex.test(emailValue) && messageValue !== "") {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [emailValue, messageValue, messageSent]);
+
   const handlePingClick = () => {
-    // TODO: check if input boxes are populated
     setButtonDisabled(true);
     setButtonLoading(true);
-    // TODO: Call ping-my-telegram. Check response -> if OK, then set buttonLoading to false, button stays disabled, text "Message sent" if not OK, set buttonLoading to false, raise error, enable button, text "Try again"
+    (async () => {
+      const rawResponse = await fetch(frogEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contact_info: emailValue,
+          message: messageValue,
+        }),
+      });
+      const response = await rawResponse.json();
+      if (response.message == "success") {
+        setButtonLoading(false);
+        setButtonDisabled(true);
+        setPingMeCaption("Sent!");
+        setMessageSent(true);
+      } else {
+        setButtonLoading(false);
+        setButtonDisabled(false);
+        setPingMeCaption("Try again :(");
+      }
+    })();
   };
-
   const useBlurInAnimation = (duration = "1.5s") => {
     const blurIn = keyframes`
       0% {
@@ -93,7 +148,6 @@ function App() {
             </Text>
           </Flex>
         </Flex>
-        {/*  */}
         <Flex
           className="aboutMe"
           width="100vw"
@@ -321,23 +375,22 @@ function App() {
                   _placeholder={{ color: "darkGray" }}
                   maxWidth="80%"
                   marginBottom={"2vh"}
-                  // alignSelf="flex-end"
+                  onChange={handleEmailChange}
                 />
                 <Textarea
                   placeholder="Your message"
                   _placeholder={{ color: "darkGray" }}
                   maxWidth="80%"
                   marginBottom={"2vh"}
-                  // alignSelf="flex-end"
+                  onChange={handleMessageChange}
                 />
                 <Button
                   width="125px"
-                  // alignSelf="flex-end"
                   onClick={() => handlePingClick()}
                   isDisabled={buttonDisabled}
                   isLoading={buttonLoading}
                 >
-                  Ping me!
+                  {pingMeCaption}
                 </Button>
               </Flex>
             </Flex>
