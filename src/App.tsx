@@ -93,7 +93,7 @@ function App() {
             </Text>
           </Flex>
         </Flex>
-
+        {/*  */}
         <Flex
           className="aboutMe"
           width="100vw"
