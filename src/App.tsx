@@ -107,7 +107,7 @@ function App() {
           }}
         >
           <Image
-            src="./src/assets/profilePic.jpg"
+            src="./assets/profilePic.jpg"
             maxWidth={"45vw"}
             objectFit={"cover"}
           ></Image>
@@ -170,7 +170,7 @@ function App() {
             zIndex: 1,
             position: "relative",
           }}
-          bgImage={"./src/assets/urbex.jpg"}
+          bgImage={"./assets/urbex.jpg"}
           bgPosition={"center"}
           backgroundAttachment="fixed"
         >
@@ -229,7 +229,7 @@ function App() {
                           }}
                         >
                           <Image
-                            src="./src/assets/spotifyDashboard.png"
+                            src="./assets/spotifyDashboard.png"
                             maxWidth="30vw"
                           ></Image>
                         </Box>
@@ -347,7 +347,7 @@ function App() {
           className="footer"
           width="100vw"
           height="20vh"
-          bgImage={"./src/assets/urbex.jpg"}
+          bgImage={"./assets/urbex.jpg"}
           bgPosition={"bottom"}
           backgroundAttachment="fixed"
         >
