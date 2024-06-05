@@ -31,7 +31,8 @@ import { keyframes, css } from "@emotion/react";
 function App() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
-  const frogEndpoint = "http://localhost:3000/dev/sendMessage";
+  const frogEndpoint =
+    "https://zvkbxcw6va.execute-api.us-east-1.amazonaws.com/dev/sendMessage";
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
