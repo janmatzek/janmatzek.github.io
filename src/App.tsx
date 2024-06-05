@@ -32,7 +32,7 @@ function App() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const frogEndpoint =
-    "https://zvkbxcw6va.execute-api.us-east-1.amazonaws.com/dev/sendMessage";
+    "https://zvkbxcw6va.execute-api.us-east-1.amazonaws.com/dev/contact_form";
 
   const [buttonLoading, setButtonLoading] = useState(false);
 
