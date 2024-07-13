@@ -19,6 +19,8 @@ const components = {
           backgroundColor: "transparent",
           borderWidth: "0px",
           textDecoration: "underline",
+          outline: "none",
+          boxShadow: "none",
         },
         _selected: {
           borderRadius: "0px",

@@ -233,6 +233,7 @@ function App() {
               {" "}
               <TabList mb="1em" borderBottom="2px solid" borderColor="gray.200">
                 <Tab>Spotify Dashboard</Tab>
+                <Tab>Insta Splitter CLI</Tab>
               </TabList>
               <TabPanels>
                 <TabPanel>
@@ -330,6 +331,88 @@ function App() {
                           >
                             frontend
                           </Link>
+                        </ListItem>
+                      </UnorderedList>
+                    </Flex>
+                  </Flex>
+                </TabPanel>
+                <TabPanel>
+                  <Text
+                    className="projectPerex"
+                    textAlign={["center"]}
+                    marginBottom={["2vh", "4vh"]}
+                    fontSize={["14px", "16px"]}
+                  >
+                    A CLI tool to help me automate image edits before posting on
+                    Instagram.{" "}
+                    <Box as="span" display={["none", "inline"]}>
+                      <br />
+                    </Box>
+                    Keeping my feed nice and tidy is now easier than ever!
+                  </Text>
+                  <Flex
+                    direction={["column", "row"]}
+                    justifyContent={"space-evenly"}
+                    alignItems="center"
+                  >
+                    <Box marginBottom={["2vh", 0]}>
+                      <Link
+                        href="https://github.com/janmatzek/instagram-image-splitter"
+                        target="blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Box
+                          filter="none"
+                          transition="transform 0.3s ease-in-out"
+                          _hover={{
+                            transform: "scale(1.05)",
+                            filter: "drop-shadow(0 0 5px white)",
+                          }}
+                        >
+                          <Image
+                            src="./assets/instagram.png"
+                            maxWidth="30vw"
+                          ></Image>
+                        </Box>
+                      </Link>
+                    </Box>
+                    <Flex
+                      width={["100%", "35vw"]}
+                      direction="column"
+                      justifyContent={"center"}
+                      fontSize={["14px", "16px"]}
+                    >
+                      <UnorderedList styleType="'- '">
+                        <ListItem>
+                          CLI tool wrapped around Pillow library automate common
+                          image edits
+                        </ListItem>
+                        <ListItem>
+                          Splits an image into a grid based on user input and
+                          saves the outputs. Has option to apply white top and
+                          bottom borders
+                        </ListItem>
+                        <ListItem>
+                          Preset to split an image into 3 squares for maximum
+                          Insta coolness
+                        </ListItem>
+                        <ListItem>Can be installed via pip</ListItem>
+                        <ListItem>
+                          <Link
+                            href="https://github.com/janmatzek/spotify-backend"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            GitHub
+                          </Link>{" "}
+                          |{" "}
+                          <Link
+                            href="https://pypi.org/project/insta-splitter/"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            PyPi
+                          </Link>{" "}
                         </ListItem>
                       </UnorderedList>
                     </Flex>
