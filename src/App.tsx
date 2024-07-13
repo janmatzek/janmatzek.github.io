@@ -21,13 +21,6 @@ import {
 import { Link as ScrollLink, Element } from "react-scroll";
 import { keyframes, css } from "@emotion/react";
 
-// TODO: update CV
-// TODO: rename spotify pipeline repo
-// TODO: make all spotify repositories public
-// TODO: get a better profile pic for the web (optional)
-// TODO: set this as your website on LinkedIn
-// TODO: start working on your next project :)
-
 function App() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -116,7 +109,7 @@ function App() {
         <Flex
           className="introPage"
           width="100%"
-          height="100vh"
+          height={["100vh", "820px"]}
           bg="darkGray"
           direction={["column", "row"]} // Stack vertically on smaller screens, row on larger
           justifyContent={["space-evenly", "center)"]}
@@ -152,7 +145,7 @@ function App() {
         <Flex
           className="aboutMe"
           width="100vw"
-          height="90vh"
+          height={["90vh", "720px"]}
           bg="lightGray"
           justifyContent={"space-between"}
           style={{
@@ -217,9 +210,9 @@ function App() {
         <Box
           className="projects"
           width="100vw"
-          height={["110vh"]}
+          height={["110vh", "890px"]}
           bg="darkGray"
-          marginTop={"-10vh"}
+          marginTop={["-10vh", "-80px"]}
           style={{
             clipPath: "polygon(0 0, 100vw 0, 100vw 110vh, 0 100vh)",
             zIndex: 1,
@@ -349,7 +342,7 @@ function App() {
         <Box
           className="contact"
           width="100vw"
-          height="70vh"
+          height={["70vh", "620px"]}
           bg="lightGray"
           marginTop={"-10vh"}
         >
@@ -400,7 +393,7 @@ function App() {
         <Box
           className="footer"
           width="100vw"
-          height="20vh"
+          height={["20vh", "150px"]}
           bgImage={"./assets/urbex.jpg"}
           bgPosition={"bottom"}
           backgroundAttachment="fixed"
