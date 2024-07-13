@@ -77,6 +77,14 @@ function App() {
         setButtonDisabled(true);
         setPingMeCaption("Sent!");
         setMessageSent(true);
+        setEmailValue("");
+        setMessageValue("Thank you for your message!");
+        setTimeout(() => {
+          setMessageValue("");
+          setButtonDisabled(false);
+          setMessageSent(false);
+          setPingMeCaption("Ping me!");
+        }, 5000);
       } else {
         setButtonLoading(false);
         setButtonDisabled(false);
@@ -105,7 +113,7 @@ function App() {
 
   return (
     <>
-      <Box className="app-wrapper" width="100vw">
+      <Box className="app-wrapper" width="100vw" bg="black">
         <Flex
           className="introPage"
           width="100%"
@@ -212,7 +220,7 @@ function App() {
           width="100vw"
           height={["110vh", "890px"]}
           bg="darkGray"
-          marginTop={["-10vh", "-80px"]}
+          marginTop={["-10vh", "-100px"]}
           style={{
             clipPath: "polygon(0 0, 100vw 0, 100vw 110vh, 0 100vh)",
             zIndex: 1,
@@ -427,7 +435,7 @@ function App() {
           width="100vw"
           height={["70vh", "620px"]}
           bg="lightGray"
-          marginTop={"-10vh"}
+          marginTop={["-10vh", "-120px"]}
         >
           <Box paddingTop={["15vh", "20vh"]} marginLeft="8vw" marginRight="8vw">
             <Heading marginBottom={"4vh"}>Get in touch!</Heading>
@@ -448,6 +456,7 @@ function App() {
               >
                 <Input
                   type="email"
+                  value={emailValue}
                   placeholder="Your email"
                   _placeholder={{ color: "darkGray" }}
                   maxWidth="80%"
@@ -455,6 +464,7 @@ function App() {
                   onChange={handleEmailChange}
                 />
                 <Textarea
+                  value={messageValue}
                   placeholder="Your message"
                   _placeholder={{ color: "darkGray" }}
                   maxWidth="80%"
