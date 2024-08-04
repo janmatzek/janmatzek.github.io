@@ -21,6 +21,8 @@ import {
 import { Link as ScrollLink, Element } from "react-scroll";
 import { keyframes, css } from "@emotion/react";
 
+// TODO: favicon
+
 function App() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
