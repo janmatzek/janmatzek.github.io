@@ -163,7 +163,7 @@ function App() {
           }}
         >
           <Image
-            src="./assets/profilePic.jpg"
+            src="./assets/profilePic.JPG"
             maxWidth={"45vw"}
             objectFit={"cover"}
           ></Image>
