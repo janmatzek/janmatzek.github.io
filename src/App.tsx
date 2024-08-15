@@ -21,8 +21,6 @@ import {
 import { Link as ScrollLink, Element } from "react-scroll";
 import { keyframes, css } from "@emotion/react";
 
-// TODO: favicon
-
 function App() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -243,7 +241,7 @@ function App() {
               {" "}
               <TabList mb="1em" borderBottom="2px solid" borderColor="gray.200">
                 <Tab>Spotify Dashboard</Tab>
-                <Tab>Insta Splitter CLI</Tab>
+                <Tab>Image Splitter</Tab>
               </TabList>
               <TabPanels>
                 <TabPanel>
@@ -353,7 +351,7 @@ function App() {
                     marginBottom={["2vh", "4vh"]}
                     fontSize={["14px", "16px"]}
                   >
-                    A CLI tool to help me automate image edits before posting on
+                    A web app to help me automate image edits before posting on
                     Instagram.{" "}
                     <Box as="span" display={["none", "inline"]}>
                       <br />
@@ -367,7 +365,7 @@ function App() {
                   >
                     <Box marginBottom={["2vh", 0]}>
                       <Link
-                        href="https://github.com/janmatzek/instagram-image-splitter"
+                        href="https://image-splitter.janmatzek.com"
                         target="blank"
                         rel="noopener noreferrer"
                       >
@@ -394,22 +392,46 @@ function App() {
                     >
                       <UnorderedList styleType="'- '">
                         <ListItem>
-                          CLI tool wrapped around Pillow library automate common
-                          image edits
-                        </ListItem>
-                        <ListItem>
                           Splits an image into a grid based on user input and
                           saves the outputs. Has option to apply white top and
                           bottom borders
                         </ListItem>
                         <ListItem>
-                          Preset to split an image into 3 squares for maximum
-                          Insta coolness
+                          Functionality wrapped around Pillow library automate
+                          common image edits.
                         </ListItem>
-                        <ListItem>Can be installed via pip</ListItem>
                         <ListItem>
                           <Link
-                            href="https://github.com/janmatzek/spotify-backend"
+                            href="https://github.com/janmatzek/image-splitter-web-app"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            Frontend
+                          </Link>{" "}
+                          created in React using Chakra UI,{" "}
+                          <Link
+                            href="https://github.com/janmatzek/instagram-image-splitter"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            backend
+                          </Link>{" "}
+                          runs on Python FastAPI
+                        </ListItem>
+                        <ListItem>
+                          Also available as a CLI, can be installed via pip
+                        </ListItem>
+                        <ListItem>
+                          <Link
+                            href="https://image-splitter.janmatzek.com"
+                            target="blank"
+                            rel="noopener noreferrer"
+                          >
+                            Web App
+                          </Link>{" "}
+                          |{" "}
+                          <Link
+                            href="https://github.com/janmatzek/instagram-image-splitter"
                             target="blank"
                             rel="noopener noreferrer"
                           >
@@ -421,7 +443,7 @@ function App() {
                             target="blank"
                             rel="noopener noreferrer"
                           >
-                            PyPi
+                            PyPI
                           </Link>{" "}
                         </ListItem>
                       </UnorderedList>
