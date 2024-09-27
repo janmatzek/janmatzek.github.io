@@ -25,7 +25,7 @@ const components = {
         _selected: {
           borderRadius: "0px",
           borderWidth: "0px",
-          // textDecoration: "underline", // uncommment when there are more tabs :)
+          textDecoration: "underline",
         },
         _focus: {
           boxShadow: "none",

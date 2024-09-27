@@ -1,0 +1,14 @@
+.app-wrapper {
+  width: 100vw;
+  background-color: black;
+}
+
+.pageDark {
+  width: 100%;
+  background-color: #393939;
+}
+
+.pageLight {
+  width: 100vw;
+  background-color: #727272;
+}
