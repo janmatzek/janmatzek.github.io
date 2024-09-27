@@ -1,0 +1,26 @@
+name: cv-deploy
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ../portfolio_user/janmatzek.github.io
+            sudo git config --system --add safe.directory /home/portfolio_user/janmatzek.github.io
+            sudo git pull origin main
+            npm install
+            npm run build
