@@ -27,7 +27,10 @@ function AboutMe() {
             I studied economics, but eventually I found my way to tech. You can
             have a look at my CV or check out some of the stuff I made.
           </p>
-          <p>Stack: Python, Linux, SQL, NoSQL, GCP, AWS, React, TypeScript</p>
+          <br></br>
+          <p>
+            <i>&#60; Python|Docker|SQL|NoSQL|GCP|AWS|Linux /&#62;</i>
+          </p>
         </Text>
         <Flex
           direction={["column", "row"]}
