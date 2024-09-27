@@ -23,6 +23,6 @@ jobs:
           script: |
             cd ../portfolio_user/janmatzek.github.io
             sudo git config --system --add safe.directory ~/janmatzek.github.io
-            sudo -u portfolio_user git pull origin main
-            npm install
-            npm run build
+            sudo git pull origin main
+            sudo npm install
+            sudo npm run build
