@@ -5,7 +5,7 @@ function AboutMe() {
   return (
     <>
       <Image
-        src="./assets/profilePic.JPG"
+        src="./assets/profilePic.jpg"
         maxWidth={"45vw"}
         objectFit={"cover"}
       ></Image>
@@ -22,15 +22,14 @@ function AboutMe() {
           textAlign={"right"}
           marginBottom={["1vh", "2vh"]}
           fontSize={["14px", "16px"]}
+          paddingLeft="10px"
         >
-          <p>
-            I studied economics, but eventually I found my way to tech. You can
-            have a look at my CV or check out some of the stuff I made.
-          </p>
+          Aspiring data engineer & developer.
           <br></br>
-          <p>
-            <i>&#60; Python|Docker|SQL|NoSQL|GCP|AWS|Linux /&#62;</i>
-          </p>
+          Have a look at my CV or my projects below!
+          <br></br>
+          <br></br>
+          <i>&#60;Python | SQL | NoSQL | GCP | AWS | Linux/&#62;</i>
         </Text>
         <Flex
           direction={["column", "row"]}
