@@ -141,11 +141,7 @@ function Projects() {
                 fontSize={["14px", "16px"]}
               >
                 A web app to help me automate image edits before posting on
-                Instagram.{" "}
-                <Box as="span" display={["none", "inline"]}>
-                  <br />
-                </Box>
-                Keeping my feed nice and tidy is now easier than ever!
+                Instagram.
               </Text>
               <Flex
                 direction={["column", "row"]}
