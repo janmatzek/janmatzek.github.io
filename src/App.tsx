@@ -61,7 +61,7 @@ function App() {
           className="contact pageLight"
           height="70vh"
           minHeight="620px"
-          marginTop={["-15vh"]}
+          marginTop={["-10vh", "-15vh"]}
         >
           <Contact />
         </Box>
