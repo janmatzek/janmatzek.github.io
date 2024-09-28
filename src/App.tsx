@@ -43,7 +43,7 @@ function App() {
           height="110vh"
           minHeight="890px"
           bg="darkGray"
-          marginTop={["-10vh", "-15vh"]}
+          marginTop={["-17vh", "-15vh"]}
           style={{
             clipPath: "polygon(0 0, 100vw 0, 100vw 110vh, 0 100vh)",
             zIndex: 1,
@@ -60,8 +60,8 @@ function App() {
         <Box
           className="contact pageLight"
           height="70vh"
-          minHeight="620px"
-          marginTop={["-17vh", "-15vh"]}
+          minHeight={["820px", "620px"]}
+          marginTop={["-20vh", "-15vh"]}
         >
           <Contact />
         </Box>
