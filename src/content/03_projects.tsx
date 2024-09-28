@@ -24,7 +24,9 @@ function Projects() {
         marginLeft={["4vw", "8vw"]}
         marginRight={["4vw", "8vw"]}
       >
-        <Heading marginBottom={"4vh"}>Projects</Heading>
+        <Heading marginBottom={"4vh"} paddingTop={["10vh", "0vh"]}>
+          Projects
+        </Heading>
         <Tabs isFitted variant="unstyled">
           {" "}
           <TabList mb="1em" borderBottom="2px solid" borderColor="gray.200">
