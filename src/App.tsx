@@ -43,7 +43,7 @@ function App() {
           height="110vh"
           minHeight="890px"
           bg="darkGray"
-          marginTop={["-17vh", "-15vh"]}
+          marginTop={["-20vh", "-15vh"]}
           style={{
             clipPath: "polygon(0 0, 100vw 0, 100vw 110vh, 0 100vh)",
             zIndex: 1,
