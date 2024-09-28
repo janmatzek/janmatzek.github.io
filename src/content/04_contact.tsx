@@ -83,7 +83,9 @@ function Contact() {
   return (
     <>
       <Box paddingTop={["15vh", "20vh"]} marginLeft="8vw" marginRight="8vw">
-        <Heading marginBottom={"4vh"}>Get in touch!</Heading>
+        <Heading marginBottom={"4vh"} paddingTop={["10vh", "0vh"]}>
+          Get in touch!
+        </Heading>
         <Flex width="100%" direction={["column", "row"]}>
           <Flex width={["100%", "50%"]} marginBottom={["4vh", 0]}>
             <Text fontSize={["14px", "16px"]} textAlign={["center", "right"]}>
